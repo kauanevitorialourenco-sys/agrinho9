@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Agro Forte - Futuro Sustentável</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#eef5ee;
+overflow-x:hidden;
+}
+
+/* CAPA */
+.capa{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
+background-size:cover;
+text-align:center;
+color:white;
+padding:120px 20px;
+}
+
+.capa h1{
+font-size:52px;
+}
+
+.capa p{
+font-size:18px;
+}
+
+.mascote{
+font-size:70px;
+margin-top:15px;
+animation:pular 1.5s infinite;
+}
+
+@keyframes pular{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+/* MENU */
+nav{
+background:#1b5e20;
+padding:12px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+font-weight:bold;
+}
+
+/* SEÇÕES */
+section{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+h2{color:#2e7d32;}
+
+.box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+margin-bottom:20px;
+line-height:1.6;
+}
+
+/* IMAGENS */
+img{
+width:80%;
+max-width:520px;
+display:block;
+margin:15px auto;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* QUIZ */
+button{
+background:#2e7d32;
+color:white;
+border:none;
+padding:10px;
+margin:5px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* JOGO */
+.animal{
+font-size:60px;
+cursor:pointer;
+margin:10px;
+display:inline-block;
+}
+
+.animal:hover{
+transform:scale(1.2);
+}
+
+/* VITÓRIA */
+#vitoria{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+color:white;
+text-align:center;
+padding-top:150px;
+font-size:30px;
+z-index:999;
+}
+
+/* FOOTER */
+footer{
+background:#1b5e20;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+<h1>🌱 Agro Forte</h1>
+<p>Futuro Sustentável: Produzir com responsabilidade</p>
+<div class="mascote">🐮🌱 Agrozinho</div>
+</div>
+
+<!-- MENU -->
+<nav>
+<a href="#agro">Agro</a>
+<a href="#animais">Animais</a>
+<a href="#agua">Água</a>
+<a href="#faep">FAEP</a>
+<a href="#quiz">Quiz</a>
+<a href="#jogo">Jogo</a>
+</nav>
+
+<!-- AGRO -->
+<section id="agro">
+<h2>🌾 Agronegócio</h2>
+
+<div class="box">
+O agronegócio brasileiro é um dos mais fortes do mundo, responsável pela produção de alimentos e economia do país.
+Ele utiliza tecnologia moderna para aumentar a produtividade e preservar o meio ambiente.
+</div>
+
+<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30">
+</section>
+
+<!-- ANIMAIS -->
+<section id="animais">
+<h2>🐄🐎 Animais do Campo</h2>
+
+<div class="box">
+O campo brasileiro possui animais importantes como bois e cavalos, essenciais para produção e trabalho rural.
+</div>
+
+<img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+</section>
+
+<!-- ÁGUA -->
+<section id="agua">
+<h2>💧 Água no Campo</h2>
+
+<div class="box">
+A água é essencial para agricultura e pecuária. Sem ela não há produção de alimentos.
+Seu uso consciente garante sustentabilidade.
+</div>
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+</section>
+
+<!-- FAEP -->
+<section id="faep">
+<h2>🚜 FAEP</h2>
+
+<div class="box">
+A FAEP representa produtores rurais e apoia o agronegócio brasileiro.
+
+Ela oferece cursos, capacitação e incentiva práticas sustentáveis como:
+<ul>
+<li>🌱 conservação do solo</li>
+<li>💧 uso da água</li>
+<li>🚜 tecnologia no campo</li>
+<li>🌳 preservação ambiental</li>
+</ul>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+<h2>🧠 Quiz</h2>
+
+<div class="box">
+<p id="pergunta"></p>
+<div id="opcoes"></div>
+<p id="resultado"></p>
+</div>
+</section>
+
+<!-- JOGO -->
+<section id="jogo">
+<h2>🎮 Jogo do Campo</h2>
+
+<div class="box">
+Clique nos animais certos:
+
+<br><br>
+
+<div class="animal" onclick="ponto()">🐄</div>
+<div class="animal" onclick="ponto()">🐎</div>
+<div class="animal" onclick="erro()">🗑️</div>
+<div class="animal" onclick="ponto()">🐂</div>
+
+<p>Pontos: <span id="pontos">0</span></p>
+</div>
+</section>
+
+<!-- VITÓRIA -->
+<div id="vitoria">
+🏆 VOCÊ VENCEU!
+<p>Você completou o desafio do Agro Sustentável</p>
+</div>
+
+<footer>
+🌱 Agro Forte - Futuro Sustentável
+</footer>
+
+<script>
+
+/* QUIZ */
+const perguntas=[
+{
+q:"O que é a FAEP?",
+o:["Produtores rurais","Loja","Fábrica"],
+c:0
+},
+{
+q:"A água no campo é:",
+o:["Inútil","Essencial","Poluente"],
+c:1
+},
+{
+q:"O agro serve para:",
+o:["Produzir alimentos","Nada","Poluir"],
+c:0
+}
+];
+
+let atual=0;
+
+function mostrar(){
+let p=document.getElementById("pergunta");
+let o=document.getElementById("opcoes");
+
+p.innerText=perguntas[atual].q;
+o.innerHTML="";
+
+perguntas[atual].o.forEach((v,i)=>{
+let b=document.createElement("button");
+
+b.innerText=v;
+
+b.onclick=()=>{
+document.getElementById("resultado").innerText=
+(i===perguntas[atual].c)?"✔ Correto!":"❌ Errado!";
+
+setTimeout(()=>{
+atual++;
+if(atual<perguntas.length){
+mostrar();
+}else{
+document.getElementById("vitoria").style.display="block";
+}
+},1000);
+};
+
+o.appendChild(b);
+});
+}
+
+mostrar();
+
+/* JOGO */
+let pontos=0;
+
+function ponto(){
+pontos++;
+document.getElementById("pontos").innerText=pontos;
+
+if(pontos>=5){
+document.getElementById("vitoria").style.display="block";
+}
+}
+
+function erro(){
+pontos--;
+document.getElementById("pontos").innerText=pontos;
+}
+
+</script>
+
+</body>
+</html>
